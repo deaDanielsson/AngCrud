@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Demo";
+    Layout = null;
+}
+
+<div class="row">
+    <div class="page-header">
+        <h3>Demo</h3>
+    </div>
+    <div class="col-md-7">
+        <h2 class="sub-header">Person Details</h2>
+        <div >
+            <table class="table">
+                <caption>Contextual Table Layout</caption>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>DOB</th>
+                        <th>Email</th>
+                        <th>Cell</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="person in persons">
+                    <tr ng-click="update(person)">
+                        <td>{{person.ID}}</td>
+                        <td>{{person.Name}}</td>
+                        <td>{{person.Age}}</td>
+                        <td>{{person.DOB|date:'dd-MM-yyyy'}}</td>
+                        <td>{{person.Email}}</td>
+                        <td>{{person.Cell}}</td>
+                        <td><button class="btn-warning" ng-click="select(person)">Select</button></td>
+                        <td><button class="btn-danger" ng-click="delete(person)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <div class="col-md-5">
+            <h2 class="sub-header">Person Entry</h2>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="txtName" type="text" ng-model="person.Name" placeholder="type name here" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Age
+                    </label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="txtAge" type="text" ng-model="person.Age"
+                               placeholder=" type age here">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        DOB
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtDOB" class="form-control" ng-model="person.DOB|date:'dd-MM-yyyy'"
+                               placeholder=" type dob here" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Cell
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtCell" class="form-control" ng-model="person.Cell" 
+                               placeholder=" type cell number here">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Email
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="email" id="txtEmail" class="form-control" ng-model="person.Email" 
+                               placeholder=" type email here">
+                    </div>
+                    <div class="col-sm-10">
+                        <button style="float:right; margin:10px;" ng-click="save()" class="btn-primary btn-sm " >Save</button>
+                        <button style="float:right; margin:10px;" ng-click="clear()" class="btn-primary btn-sm ">Newr</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
